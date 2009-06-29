@@ -35,8 +35,6 @@ DataMapper.auto_upgrade!
 
 ## -- WEBSITE STUFF --
 
-layout 'default.erb'
-
 get '/' do
   File.read('public/index.html')
 end
