@@ -35,10 +35,6 @@ DataMapper.auto_upgrade!
 
 ## -- WEBSITE STUFF --
 
-get '/' do
-  erb :index
-end
-
 get '/debug' do
   @entries = ContestEntry.all
   @scores = Score.all
