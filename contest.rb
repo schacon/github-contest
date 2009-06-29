@@ -71,6 +71,7 @@ post '/' do
     results.split("\n").each do |guess|
       (uid, rids) = guess.split(':')
       next if !key[uid]
+      next if !rids
       rids = rids.split(',')
       if rids.include? key[uid]
         score += 1
