@@ -82,9 +82,9 @@ post '/' do
     f.close
     if score > 0
       score = Score.new
-      score.contest_entry = entry
       score.score = score
       score.save
+      entry.scores << score
     end
   end
 end
