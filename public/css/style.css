@@ -31,3 +31,7 @@ pre { padding: 20px; background: #ffd; font-size: 0.9em; }
 .red a { color: #a44; }
 .green { border: 3px solid #8a8; background: #efe;}
 .blue  { border: 3px solid #88a; background: #eef;}
+
+table.leaderboard tr td {
+    font-size: 1.2em;
+}
