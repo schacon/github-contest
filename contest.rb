@@ -86,6 +86,7 @@ post '/' do
       sc.score = score
       sc.save
       entry.scores << sc
+      entry.save
     end
   end
 end
