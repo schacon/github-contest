@@ -79,14 +79,13 @@ post '/' do
       end
     end
     f.puts score
+    f.close
     if score > 0
       score = Score.new
       score.contest_entry = entry
       score.score = score
       score.save
     end
-    f.puts 'finished'
-    f.close
   end
 end
 
