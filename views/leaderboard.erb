@@ -1,0 +1,9 @@
+<h1>Leaderboard</h1>
+<table>
+<% @entries.each do |e| %>
+  <tr>
+    <td><%= e.owner %>/<%= e.name %></td>
+    <td><%= e.highscore %></td>
+  </tr>
+<% end %>
+</table>
