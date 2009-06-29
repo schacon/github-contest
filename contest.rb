@@ -10,6 +10,7 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/local.db
 
 class ContestEntry
   include DataMapper::Resource 
+  has n, :scores  
   property :id,         Serial
   property :name,       String, :key => true 
   property :owner,      String
