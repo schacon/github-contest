@@ -58,10 +58,13 @@ post '/' do
   entry = ContestEntry.first(:name => repo_name, :owner => owner)
   if !entry
     entry = ContestEntry.new
-    entry.attributes = {:name => repo_name, :owner => owner}
+    entry.attributes = {:name => repo_name, :owner => owner, :entered => Time.now()}
     entry.save
     # email to congratulate for joining?
   end
+  entry.homepage = repo['homepage']
+  entry.description = repo['description']
+  entry.email = repo['owner']['email']
 
   # read the results
   raw = "http://github.com/#{owner}/#{repo_name}/raw/#{after}/results.txt"
@@ -87,12 +90,11 @@ post '/' do
       sc.score = score
       sc.save
       entry.scores << sc
-      entry.save
       hs = entry.highscore || 0
       if score > hs
         entry.highscore = score
-        entry.save
       end
+      entry.save
     end
 
   end
