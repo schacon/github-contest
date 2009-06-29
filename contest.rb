@@ -88,7 +88,8 @@ post '/' do
       sc.save
       entry.scores << sc
       entry.save
-      if score > entry.highscore
+      hs = entry.highscore || 0
+      if score > hs
         entry.highscore = score
         entry.save
       end
