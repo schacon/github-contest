@@ -10,12 +10,18 @@
 <div class="span-11">
   <center>
   <table class="leaderboard">
+    <tr>
+      <th>Entry</th>
+      <th>High Score</th>
+      <th>Percent Guessed</th>
+      <th>Code</th>
+    </tr>
   <% @entries.each do |e| %>
     <tr>
-      <td><a href="http://github.com/<%= e.owner %>/<%= e.name %>">(code)</a></td>
-      <td><%= e.owner %>/<%= e.name %></td>
+      <td><a href="/p/<%= e.owner %>/<%= e.name %>"><%= e.owner %>/<%= e.name %></a></td>
       <td><%= e.highscore %></td>
       <td><%= ((e.highscore.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
+      <td><a href="http://github.com/<%= e.owner %>/<%= e.name %>">(code)</a></td>
     </tr>
   <% end %>
   </table>
