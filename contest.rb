@@ -39,6 +39,16 @@ get '/' do
   File.read('public/index.html')
 end
 
+# leaderboard api
+get '/leaderboard' do
+  @entries = ContestEntry.all(:order => [:highscore.desc])
+  erb :leaderboard
+end
+
+# individual project data
+get '/p/:user/:repo' do
+end
+
 get '/debug' do
   @entries = ContestEntry.all
   @scores = Score.all
@@ -98,12 +108,4 @@ post '/' do
     end
 
   end
-end
-
-# leaderboard api
-get '/leaderboard' do
-end
-
-# individual project data
-get '/p/:user/:repo' do
 end
