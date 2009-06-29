@@ -52,7 +52,11 @@ end
 # individual project data
 get '/p/:user/:repo' do
   @entry = ContestEntry.first({:name => :repo, :owner => :user})
-  erb :project
+  if @entry
+    erb :project
+  else
+    erb :notfound
+  end
 end
 
 get '/debug' do
