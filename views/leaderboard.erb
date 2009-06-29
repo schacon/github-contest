@@ -4,6 +4,7 @@
   <tr>
     <td><%= e.owner %>/<%= e.name %></td>
     <td><%= e.highscore %></td>
+    <td><%= ((e.highscore.to_f / 4788.0) * 100) %></td>
   </tr>
 <% end %>
 </table>
