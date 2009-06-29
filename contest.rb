@@ -35,7 +35,8 @@ DataMapper.auto_upgrade!
 ## -- WEBSITE STUFF --
 
 get '/' do
-  # frontpage
+  @entries = ContestEntry.all
+  erb :index
 end
 
 # post receive handler
