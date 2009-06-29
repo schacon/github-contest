@@ -51,7 +51,7 @@ end
 
 # individual project data
 get '/p/:user/:repo' do
-  @entry = ContestEntry.first({:name => @repo, :owner => @user})
+  @entry = ContestEntry.first({:name => params[:repo], :owner => params[:user]})
   if @entry
     erb :project
   else
