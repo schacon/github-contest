@@ -1,0 +1,35 @@
+<div class="span-21" id="welcome">
+  <h1>Entry: <% @entry.nwo %></h1>
+  <p></p>
+</div>
+
+<div class="span-4">
+  &nbsp;
+</div>
+
+<div class="span-13">
+  <center>
+  <table>
+    <tr>
+      <th>Entry</th>
+      <td><a href="http://github.com/<%= @entry.nwo %>"><%= @entry.nwo %></a></td>
+      
+      <th>Description</th>
+      <td><%= @entry.description %></td>
+
+      <th>Homepage</th>
+      <td><%= @entry.homepage %></td>      
+    </tr>
+  <% @entry.scores.each do |s| %>
+    <tr>
+      <td><%= s.score %></td>
+      <td><%= s.attributes %></td>
+    </tr>
+  <% end %>
+  </table>
+  </center>
+</div>
+
+<div class="span-4 last">
+  &nbsp;
+</div>
