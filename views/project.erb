@@ -27,8 +27,10 @@
   <table>
   <% @entry.scores.each do |s| %>
     <tr>
+      <td><%= s.entered.strftime("%Y-%m-%d") %></td>
       <td><%= s.score %></td>
-      <td><%= s.attributes %></td>
+      <td><%= s.ref %></td>
+      <td><code><%= s.sha[0,6] %></code></td>
     </tr>
   <% end %>
   </table>
