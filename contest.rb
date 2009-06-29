@@ -60,10 +60,10 @@ post '/' do
 
   # read the results
   raw = "http://github.com/#{owner}/#{repo_name}/raw/#{after}/results.txt"
-  File.open('log/logging', 'w+') { |f| f.write raw }
   results = open(raw) do |f|
     f.read
   end
+  File.open('log/logging', 'w+') { |f| f.write results }
 
   if results
     key = JSON.parse(File.read('key.json'))
