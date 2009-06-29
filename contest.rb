@@ -43,6 +43,10 @@ get '/' do
   File.read('public/index.html')
 end
 
+get '/register' do
+  erb :register
+end
+
 # leaderboard api
 get '/leaderboard' do
   @entries = ContestEntry.all(:order => [:highscore.desc])
