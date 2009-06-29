@@ -25,12 +25,12 @@
   </table>
   
   <table>
-  <% @entry.scores.each do |s| %>
+  <% @entry.scores.reverse.each do |s| %>
     <tr>
       <td><%= s.entered.strftime("%Y-%m-%d") rescue nil %></td>
       <td><%= s.score %></td>
       <td><%= s.ref %></td>
-      <td><code><%= s.sha[0,6] %></code></td>
+      <td><code><%= s.sha[0,6] rescue nil %></code></td>
     </tr>
   <% end %>
   </table>
