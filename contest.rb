@@ -108,6 +108,8 @@ post '/' do
     if score > 0
       sc = Score.new
       sc.score = score
+      sc.sha = after
+      sc.ref = push['ref']
       sc.entered = Time.now()
       sc.save
       entry.scores << sc
