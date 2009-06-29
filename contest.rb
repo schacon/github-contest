@@ -35,6 +35,10 @@ DataMapper.auto_upgrade!
 
 ## -- WEBSITE STUFF --
 
+get '/' do
+  File.read('public/index.html')
+end
+
 get '/debug' do
   @entries = ContestEntry.all
   @scores = Score.all
