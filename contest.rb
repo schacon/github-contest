@@ -19,6 +19,10 @@ class ContestEntry
   property :homepage,    String
   property :entered,    DateTime
   property :highscore,  Integer
+  
+  def nwo
+    self.owner + '/' + self.name
+  end
 end
 
 class Score
@@ -47,6 +51,8 @@ end
 
 # individual project data
 get '/p/:user/:repo' do
+  @entry = ContestEntry.all({:name => :repo, :owner => :user})
+  erb :project
 end
 
 get '/debug' do
