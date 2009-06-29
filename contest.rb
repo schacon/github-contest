@@ -63,7 +63,8 @@ post '/' do
   results = open(raw) do |f|
     f.read
   end
-  File.open('log/logging', 'w+') { |f| f.write results }
+  
+  f = File.open('log/logging', 'w+')
 
   if results
     key = JSON.parse(File.read('key.json'))
@@ -77,12 +78,15 @@ post '/' do
         score += 1
       end
     end
+    f.puts score
     if score > 0
       score = Score.new
       score.contest_entry = entry
       score.score = score
       score.save
     end
+    f.puts 'finished'
+    f.close
   end
 end
 
