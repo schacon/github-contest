@@ -81,10 +81,10 @@ post '/' do
     f.puts score
     f.close
     if score > 0
-      score = Score.new
-      score.score = score
-      score.save
-      entry.scores << score
+      sc = Score.new
+      sc.score = score
+      sc.save
+      entry.scores << sc
     end
   end
 end
