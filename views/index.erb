@@ -2,3 +2,9 @@
 <% @entries.each do |e| %>
   <%= e.name %><br/>
 <% end %>
+
+<h1>Scores</h1>
+<% @scores.each do |e| %>
+  <%= e.score %><br/>
+  <%= e.attributes %><br/>
+<% end %>

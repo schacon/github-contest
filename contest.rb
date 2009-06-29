@@ -36,6 +36,7 @@ DataMapper.auto_upgrade!
 
 get '/' do
   @entries = ContestEntry.all
+  @scores = Score.all
   erb :index
 end
 
