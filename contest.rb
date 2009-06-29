@@ -51,7 +51,7 @@ end
 
 # individual project data
 get '/p/:user/:repo' do
-  @entry = ContestEntry.all({:name => :repo, :owner => :user})
+  @entry = ContestEntry.first({:name => :repo, :owner => :user})
   erb :project
 end
 
