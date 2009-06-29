@@ -3,9 +3,13 @@
   <p></p>
 </div>
 
-<div class="span-21">
+<div class="span-5">
+  &nbsp;
+</div>
+
+<div class="span-11">
   <center>
-  <table width="50%">
+  <table>
   <% @entries.each do |e| %>
     <tr>
       <td><%= e.owner %>/<%= e.name %></td>
@@ -15,4 +19,8 @@
   <% end %>
   </table>
   </center>
+</div>
+
+<div class="span-5 last">
+  &nbsp;
 </div>
