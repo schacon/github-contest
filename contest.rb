@@ -58,7 +58,8 @@ post '/' do
   end
 
   # read the results
-  puts raw = "http://github.com/#{repo_name}/#{owner}/raw/#{after}/results.txt"
+  raw = "http://github.com/#{repo_name}/#{owner}/raw/#{after}/results.txt"
+  File.open('logging', 'w+') { |f| f.write raw }
   results = open(raw) do |f|
     f.read
   end
