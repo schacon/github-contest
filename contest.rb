@@ -35,10 +35,10 @@ DataMapper.auto_upgrade!
 
 ## -- WEBSITE STUFF --
 
-get '/' do
+get '/debug' do
   @entries = ContestEntry.all
   @scores = Score.all
-  erb :index
+  erb :debug
 end
 
 # post receive handler
@@ -64,8 +64,6 @@ post '/' do
   results = open(raw) do |f|
     f.read
   end
-  
-  f = File.open('log/logging', 'w+')
 
   if results
     key = JSON.parse(File.read('key.json'))
@@ -79,8 +77,7 @@ post '/' do
         score += 1
       end
     end
-    f.puts score
-    f.close
+
     if score > 0
       sc = Score.new
       sc.score = score
@@ -88,6 +85,7 @@ post '/' do
       entry.scores << sc
       entry.save
     end
+
   end
 end
 
