@@ -108,6 +108,7 @@ post '/' do
     if score > 0
       sc = Score.new
       sc.score = score
+      sc.entered = Time.now()
       sc.save
       entry.scores << sc
       hs = entry.highscore || 0
