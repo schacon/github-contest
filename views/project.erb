@@ -1,5 +1,5 @@
 <div class="span-21" id="welcome">
-  <h1>Entry: <% @entry.nwo %></h1>
+  <h1>Entry: <%= @entry.nwo %></h1>
   <p></p>
 </div>
 
@@ -13,13 +13,18 @@
     <tr>
       <th>Entry</th>
       <td><a href="http://github.com/<%= @entry.nwo %>"><%= @entry.nwo %></a></td>
-      
+    </tr>
+    <tr>
       <th>Description</th>
       <td><%= @entry.description %></td>
-
+    </tr>
+    <tr>
       <th>Homepage</th>
       <td><%= @entry.homepage %></td>      
     </tr>
+  </table>
+  
+  <table>
   <% @entry.scores.each do |s| %>
     <tr>
       <td><%= s.score %></td>
