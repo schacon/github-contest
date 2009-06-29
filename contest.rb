@@ -49,7 +49,7 @@ post '/' do
   after     = push['after']
   
   # get or create the entry
-  entry = ContestEntry.find(:name => repo_name, :owner => owner)
+  entry = ContestEntry.first(:name => repo_name, :owner => owner)
   if !entry
     entry = ContestEntry.new
     entry.attributes = {:name => repo_name, :owner => owner}
