@@ -42,7 +42,7 @@ end
 # leaderboard api
 get '/leaderboard' do
   @entries = ContestEntry.all(:order => [:highscore.desc])
-  erb :leaderboard
+  erb :leaderboard, :layout => 'default.erb' 
 end
 
 # individual project data
