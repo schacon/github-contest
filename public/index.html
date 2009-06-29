@@ -52,18 +52,18 @@
       <p>The contest is pretty simple.  You download our sample data, which 
         includes a file containing which users are watching which repostitories,
         a file describing the repositories,
-        and a file listing 4,788 users.</p>
-      <p>Then, you write a program to recommend up to
-        10 repositories for each of those users.  You get a point for each user 
-        for which one of your recommendations was the repository they had 
-        watched that we randomly removed. To enter:</p>
+        and a file listing 4,788 users. Then you write a program to 
+        recommend up to
+        10 repositories for each of those users.  
+        You get a point for each time one of your guesses was the entry we removed.
+        To enter:</p>
         
       <ul>
         <li> Create a new repository on GitHub for your entry.
         <li> Add our contest server as a post-receive URL:
-          <ul><li>http://githubcontest.com</ul>
+          <ul><li><strong>http://githubcontest.com</strong></ul>
         <li> Push to your repo with a <code>results.txt</code> file that contains your guesses.
-        <li> Your score is calculated and added to the leaderboard.
+        <li> Your score is calculated and added to <a href="/leaderboard">the leaderboard</a>.
       </ul>
 
       <p>The contest ends on August 1st, 2009 
@@ -94,9 +94,9 @@
         <li>56,555 unique users
       </ul>
 
-      <p>We include in a seperate file the names and 
+      <p>We include in seperate files the names and 
         calculated language breakdowns for each repository
-        in case you want to use it for classification algorithms. 
+        in case you want to use that data for classification algorithms. 
       If you want other data that we have that you can access via the GitHub API,
       please <a href="mailto:scott@github.com">let me know</a> so I can snapshot it for you server-side instead of 
       having you pound the server with API requests.</p>
