@@ -14,7 +14,7 @@
     <tr>
       <td><%= e.owner %>/<%= e.name %></td>
       <td><%= e.highscore %></td>
-      <td><%= ((e.highscore.to_f / 4788.0) * 100).to_s[0, 6] %></td>
+      <td><%= ((e.highscore.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
     </tr>
   <% end %>
   </table>
