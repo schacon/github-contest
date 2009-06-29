@@ -87,10 +87,11 @@ post '/' do
       sc.score = score
       sc.save
       entry.scores << sc
+      entry.save
       if score > entry.highscore
         entry.highscore = score
+        entry.save
       end
-      entry.save
     end
 
   end
