@@ -1,10 +1,18 @@
-<h1>Leaderboard</h1>
-<table>
-<% @entries.each do |e| %>
-  <tr>
-    <td><%= e.owner %>/<%= e.name %></td>
-    <td><%= e.highscore %></td>
-    <td><%= ((e.highscore.to_f / 4788.0) * 100).to_s[0, 6] %></td>
-  </tr>
-<% end %>
-</table>
+<div class="span-21" id="welcome">
+  <h1>GitHub Contest Leaderboard</h1>
+  <p></p>
+</div>
+
+<div class="span-21">
+  <center>
+  <table width="50%">
+  <% @entries.each do |e| %>
+    <tr>
+      <td><%= e.owner %>/<%= e.name %></td>
+      <td><%= e.highscore %></td>
+      <td><%= ((e.highscore.to_f / 4788.0) * 100).to_s[0, 6] %></td>
+    </tr>
+  <% end %>
+  </table>
+  </center>
+</div>
