@@ -22,6 +22,10 @@
       <th>Homepage</th>
       <td><%= @entry.homepage %></td>      
     </tr>
+    <tr>
+      <th>High Score</th>
+      <td><strong><%= @entry.highscore %></strong></td>
+    </tr>
   </table>
   
   <h2>Scores</h2>
@@ -32,7 +36,7 @@
       <td><strong><%= s.score %></strong></td>
       <td><%= ((s.score.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
       <td><%= s.ref %></td>
-      <td><code><%= s.sha[0,6] rescue nil %></code></td>
+      <td><a href="http://github.com/<%= @entry.nwo %>/commit/<%= s.sha %>"><code><%= s.sha[0,6] rescue nil %></code></td>
     </tr>
   <% end %>
   </table>

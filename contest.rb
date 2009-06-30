@@ -99,12 +99,15 @@ post '/' do
   if results
     key = JSON.parse(File.read('key.json'))
     score = 0
+    
+    # verify that it is the right format (add to error if not)
     results.split("\n").each do |guess|
       (uid, rids) = guess.split(':')
       next if !key[uid]
       next if !rids
-      rids = rids.split(',')
+      rids = rids.split(',')[0, 10] # verify that each entry only has up to 10 guesses
       if rids.include? key[uid]
+        key.delete uid # verify that each entry is only there once
         score += 1
       end
     end
