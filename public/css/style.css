@@ -1,6 +1,7 @@
-body { font-size: 1.1em }
 
 a { color: #000; }
+
+.container { font-size: 1.1em; }
 
 #welcome h1 {
   padding: 20px; 
