@@ -1,0 +1,10 @@
+TODO:
+
+* look for results.txt blob sha, only process if it is there and has changed
+
+* add error field to score, fill out with 0 score if there was an error
+  - display on the score page
+
+* setup a forwarding A record
+
+* simplify the home page a bit? (all one column, perhaps?)
