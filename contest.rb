@@ -10,7 +10,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/local.db
 
 class ContestEntry
   include DataMapper::Resource 
-  has n, :scores  
+  has n, :scores
+  has n, :pushes
   property :id,         Serial
   property :name,       String, :key => true 
   property :owner,      String
@@ -28,11 +29,19 @@ end
 class Score
   include DataMapper::Resource 
   belongs_to :contest_entry
+  belongs_to :push
+  property :id,       Serial  
+  property :score,    Integer
+end
+
+class Push
+  include DataMapper::Resource 
+  belongs_to :contest_entry
   property :id,       Serial  
   property :ref,      String
   property :sha,      String
+  property :results_sha, String
   property :entered,  DateTime
-  property :score,    Integer
 end
 
 DataMapper.auto_upgrade!
@@ -66,6 +75,7 @@ end
 get '/debug' do
   @entries = ContestEntry.all
   @scores = Score.all
+  @pushes = Push.all
   erb :debug
 end
 
@@ -90,42 +100,67 @@ post '/' do
   entry.description = repo['description']
   entry.email = repo['owner']['email']
 
-  # read the results
-  raw = "http://github.com/#{owner}/#{repo_name}/raw/#{after}/results.txt"
-  results = open(raw) do |f|
+  # save the push information
+  pu = Push.new
+  pu.sha = after
+  pu.ref = push['ref']
+  pu.entered = Time.now()
+  pu.save
+  entry.pushes << pu
+  entry.save
+
+  # look for a changed file
+  new_results = false
+  tree_url = "http://github.com/api/v2/json/tree/show/#{owner}/#{repo_name}/#{after}"
+  tree = open(tree_url) do |f|
     f.read
   end
 
-  if results
-    key = JSON.parse(File.read('key.json'))
-    score = 0
+  new_tree = JSON.parse(tree)
+  new_tree.each do |f|
+    if f['name'] == 'results.txt'
+      pu.results_sha = f['sha']
+      pu.save
+      new_results = true
+    end
+  end
+  
+  if new_results
+    # read the results
+    raw = "http://github.com/#{owner}/#{repo_name}/raw/#{after}/results.txt"
+    results = open(raw) do |f|
+      f.read
+    end
+
+    if results
+      key = JSON.parse(File.read('key.json'))
+      score = 0
     
-    # verify that it is the right format (add to error if not)
-    results.split("\n").each do |guess|
-      (uid, rids) = guess.split(':')
-      next if !key[uid]
-      next if !rids
-      rids = rids.split(',')[0, 10] # verify that each entry only has up to 10 guesses
-      if rids.include? key[uid]
-        key.delete uid # verify that each entry is only there once
-        score += 1
+      # verify that it is the right format (add to error if not)
+      results.split("\n").each do |guess|
+        (uid, rids) = guess.split(':')
+        next if !key[uid]
+        next if !rids
+        rids = rids.split(',')[0, 10] # verify that each entry only has up to 10 guesses
+        if rids.include? key[uid]
+          key.delete uid # verify that each entry is only there once
+          score += 1
+        end
+      end
+
+      if score > 0
+        sc = Score.new
+        sc.score = score
+        sc.push = pu
+        sc.save
+        entry.scores << sc
+        hs = entry.highscore || 0
+        if score > hs
+          entry.highscore = score
+        end
+        entry.save
       end
     end
-
-    if score > 0
-      sc = Score.new
-      sc.score = score
-      sc.sha = after
-      sc.ref = push['ref']
-      sc.entered = Time.now()
-      sc.save
-      entry.scores << sc
-      hs = entry.highscore || 0
-      if score > hs
-        entry.highscore = score
-      end
-      entry.save
-    end
-
+    
   end
 end
