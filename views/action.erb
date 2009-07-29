@@ -19,6 +19,7 @@
       <td><%= s.push.entered.strftime("%Y-%m-%d %H:%i") rescue nil %></td>
       <td><a href="/p/<%= s.contest_entry.nwo rescue nil %>"><%= s.contest_entry.nwo rescue nil %></a></td>
       <td><%= s.score %></td>
+      <td><%= ((s.score.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
     </tr>
   <% end %>
   </table>
