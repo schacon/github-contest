@@ -40,7 +40,7 @@ class Push
   property :id,       Serial  
   property :ref,      String
   property :sha,      String
-  property :results_sha, String
+  property :results_sha, String, :index => true
   property :message, String
   property :entered,  DateTime
 end
@@ -120,9 +120,14 @@ post '/' do
   new_tree = JSON.parse(tree)
   new_tree['tree'].each do |f|
     if f['name'] == 'results.txt'
+      if !Push.first(:results_sha => f['sha'])
+        new_results = true
+        pu.message = 'processing new results.txt file'
+      else
+        pu.message = 'no new results.txt file'
+      end
       pu.results_sha = f['sha']
       pu.save
-      new_results = true
     end
   end
   
