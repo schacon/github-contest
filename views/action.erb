@@ -1,0 +1,20 @@
+<table>
+  <tr><td>
+    <h1>New Entries</h1>
+    <% @entries.each do |e| %>
+      <%= e.name %><br/>
+      <%= e.attributes %><br/>
+    <% end %>
+  </td><td>
+    <h1>New Scores</h1>
+    <% @scores.each do |e| %>
+      <%= e.score %><br/>
+      <%= e.attributes %><br/>
+    <% end %>
+  </td></tr>
+</table>
+
+<h1>Latest Pushes</h1>
+<% @pushes.each do |e| %>
+  <%= e.attributes %><br/>
+<% end %>
