@@ -41,6 +41,7 @@ class Push
   property :ref,      String
   property :sha,      String
   property :results_sha, String
+  property :message, String
   property :entered,  DateTime
 end
 
@@ -116,6 +117,9 @@ post '/' do
     f.read
   end
 
+  pu.message = tree
+  pu.save
+  
   new_tree = JSON.parse(tree)
   new_tree.each do |f|
     if f['name'] == 'results.txt'
