@@ -34,6 +34,7 @@
       <td><a href="/p/<%= e.contest_entry.nwo rescue nil %>"><%= e.contest_entry.nwo rescue nil %></a></td>
       <td><a href="http://github.com/<%= e.contest_entry.nwo rescue nil %>/commit/<%= e.sha rescue nil %>"><code><%= e.sha[0,6] rescue nil %></code></td>
       <td><%= e.message %></a></td>
+      <td><%= e.score.score rescue nil %></a></td>
     </tr>
   <% end %>
   </table>
