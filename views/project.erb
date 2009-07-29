@@ -36,7 +36,7 @@
       <td><strong><%= s.score %></strong></td>
       <td><%= ((s.score.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
       <td><%= s.push.ref rescue nil %></td>
-      <td><a href="http://github.com/<%= @entry.nwo %>/commit/<%= s.push.sha %>"><code><%= s.push.sha[0,6] rescue nil %></code></td>
+      <td><a href="http://github.com/<%= @entry.nwo %>/commit/<%= s.push.sha rescue nil %>"><code><%= s.push.sha[0,6] rescue nil %></code></td>
     </tr>
   <% end %>
   </table>
