@@ -3,7 +3,7 @@
   <table>
   <% @entries.each do |e| %>
     <tr>
-      <td><%= e.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
+      <td><%= e.entered.strftime("%m/%d %H:%M") rescue nil %></td>
       <td><a href="/p/<%= e.owner %>/<%= e.name %>"><%= e.owner %>/<%= e.name %></a></td>
       <td><a href="http://github.com/<%= e.owner %>/<%= e.name %>">(code)</a></td>      
     </tr>
@@ -16,7 +16,7 @@
   <table>
   <% @scores.each do |s| %>
     <tr>
-      <td><%= s.push.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
+      <td><%= s.push.entered.strftime("%m/%d %H:%M") rescue nil %></td>
       <td><a href="/p/<%= s.contest_entry.nwo rescue nil %>"><%= s.contest_entry.nwo rescue nil %></a></td>
       <td><%= s.score %></td>
       <td><%= ((s.score.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
@@ -30,7 +30,7 @@
   <table>
   <% @pushes.each do |e| %>
     <tr>
-      <td><%= e.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
+      <td><%= e.entered.strftime("%m/%d %H:%M") rescue nil %></td>
       <td><a href="/p/<%= e.contest_entry.nwo rescue nil %>"><%= e.contest_entry.nwo rescue nil %></a></td>
       <td><a href="http://github.com/<%= e.contest_entry.nwo rescue nil %>/commit/<%= e.sha rescue nil %>"><code><%= e.sha[0,6] rescue nil %></code></td>
       <td><%= e.message %></a></td>
