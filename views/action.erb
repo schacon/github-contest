@@ -1,20 +1,28 @@
-<table>
-  <tr><td>
-    <h1>New Entries</h1>
-    <% @entries.each do |e| %>
-      <%= e.name %><br/>
-      <%= e.attributes %><br/>
-    <% end %>
-  </td><td>
-    <h1>New Scores</h1>
-    <% @scores.each do |e| %>
-      <%= e.score %><br/>
-      <%= e.attributes %><br/>
-    <% end %>
-  </td></tr>
-</table>
+<div class="span-21" id="header">
+  <table>
+    <tr><td>
+      <h2>New Entries</h2>
+      <table>
+      <% @entries.each do |e| %>
+        <tr><td><%= e.name %></td></tr>
+      <% end %>
+      </table>
+    </td><td>
+      <h2>New Scores</h2>
+      <table>
+      <% @scores.each do |e| %>
+        <tr><td><%= e.score %></td></tr>
+      <% end %>
+      </table>
+    </td></tr>
+  </table>
+</span>
 
-<h1>Latest Pushes</h1>
-<% @pushes.each do |e| %>
-  <%= e.attributes %><br/>
-<% end %>
+<div class="span-21">
+  <h2>Latest Pushes</h2>
+  <table>
+  <% @pushes.each do |e| %>
+    <tr><td><%= e.attributes %></td></tr>
+  <% end %>
+  </table>
+</div>
