@@ -29,9 +29,11 @@
   <h2>Latest Pushes</h2>
   <table>
   <% @pushes.each do |e| %>
-    <td><%= e.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
-    <td><a href="/p/<%= e.contest_entry.nwo rescue nil %>"><%= e.contest_entry.nwo rescue nil %></a></td>
-    <td><%= e.message %></a></td>
+    <tr>
+      <td><%= e.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
+      <td><a href="/p/<%= e.contest_entry.nwo rescue nil %>"><%= e.contest_entry.nwo rescue nil %></a></td>
+      <td><%= e.message %></a></td>
+    </tr>
   <% end %>
   </table>
 </div>
