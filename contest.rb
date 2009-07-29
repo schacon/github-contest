@@ -73,11 +73,11 @@ get '/p/:user/:repo' do
   end
 end
 
-get '/debug' do
-  @entries = ContestEntry.all
-  @scores = Score.all
-  @pushes = Push.all
-  erb :debug
+get '/action' do
+  @entries = ContestEntry.all(:order => [:id.desc], :limit => 10)
+  @scores = Score.all(:order => [:id.desc], :limit => 10)
+  @pushes = Push.all(:order => [:id.desc], :limit => 25)
+  erb :action
 end
 
 # post receive handler
