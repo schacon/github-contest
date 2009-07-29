@@ -3,20 +3,22 @@
   <table>
   <% @entries.each do |e| %>
     <tr>
-      <td><%= e.name %></td>
-      <td><%= e.owner %></td>
+      <td><%= e.entered.strftime("%Y-%m-%d %H:%i") rescue nil %></td>
+      <td><a href="/p/<%= e.owner %>/<%= e.name %>"><%= e.owner %>/<%= e.name %></a></td>
+      <td><a href="http://github.com/<%= e.owner %>/<%= e.name %>">(code)</a></td>      
     </tr>
   <% end %>
   </table>
 </div>
 
-<div class="span-10 last">
+<div class="span-11 last">
   <h2>New Scores</h2>
   <table>
-  <% @scores.each do |e| %>
+  <% @scores.each do |s| %>
     <tr>
-      <td><%= e.contest_entry.nwo rescue nil %></td>
-      <td><%= e.score %></td>
+      <td><%= s.push.entered.strftime("%Y-%m-%d %H:%i") rescue nil %></td>
+      <td><a href="/p/<%= s.contest_entry.nwo rescue nil %>"><%= s.contest_entry.nwo rescue nil %></a></td>
+      <td><%= s.score %></td>
     </tr>
   <% end %>
   </table>
