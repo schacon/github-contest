@@ -117,11 +117,8 @@ post '/' do
     f.read
   end
 
-  pu.message = tree
-  pu.save
-  
   new_tree = JSON.parse(tree)
-  new_tree.each do |f|
+  new_tree['tree'].each do |f|
     if f['name'] == 'results.txt'
       pu.results_sha = f['sha']
       pu.save
