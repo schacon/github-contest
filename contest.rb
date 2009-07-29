@@ -36,6 +36,7 @@ end
 
 class Push
   include DataMapper::Resource 
+  has 1, :score
   belongs_to :contest_entry
   property :id,       Serial  
   property :ref,      String
