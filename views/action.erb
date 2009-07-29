@@ -1,17 +1,23 @@
 <div class="span-21" id="header">
   <table>
-    <tr><td>
+    <tr><td valign="top">
       <h2>New Entries</h2>
       <table>
       <% @entries.each do |e| %>
-        <tr><td><%= e.name %></td></tr>
+        <tr>
+          <td><%= e.name %></td>
+          <td><%= e.owner %></td>
+        </tr>
       <% end %>
       </table>
-    </td><td>
+    </td><td valign="top">
       <h2>New Scores</h2>
       <table>
       <% @scores.each do |e| %>
-        <tr><td><%= e.score %></td></tr>
+        <tr>
+          <td><%= e.contest_entry.nwo rescue nil %></td>
+          <td><%= e.score %></td>
+        </tr>
       <% end %>
       </table>
     </td></tr>
