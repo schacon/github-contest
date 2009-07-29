@@ -32,6 +32,7 @@
     <tr>
       <td><%= e.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
       <td><a href="/p/<%= e.contest_entry.nwo rescue nil %>"><%= e.contest_entry.nwo rescue nil %></a></td>
+      <td><a href="http://github.com/<%= e.contest_entry.nwo rescue nil %>/commit/<%= e.sha rescue nil %>"><code><%= e.sha[0,6] rescue nil %></code></td>
       <td><%= e.message %></a></td>
     </tr>
   <% end %>
