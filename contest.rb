@@ -98,8 +98,8 @@ post '/' do
     entry.save
     # email to congratulate for joining?
   end
-  entry.homepage = repo['homepage']
-  entry.description = repo['description']
+  entry.homepage = repo['homepage'][0, 40]
+  entry.description = repo['description'][0, 40]
   entry.email = repo['owner']['email']
 
   # save the push information
