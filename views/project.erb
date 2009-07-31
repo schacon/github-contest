@@ -32,7 +32,7 @@
   <table>
   <% @entry.scores.reverse.each do |s| %>
     <tr>
-      <td><%= s.push.entered.strftime("%Y-%m-%d %H:%m") rescue nil %></td>
+      <td><%= s.push.entered.strftime("%Y-%m-%d %H:%M") rescue nil %></td>
       <td><strong><%= s.score %></strong></td>
       <td><%= ((s.score.to_f / 4788.0) * 100).to_s[0, 5] %>%</td>
       <td><%= s.push.ref rescue nil %></td>
