@@ -155,18 +155,16 @@ post '/' do
         end
       end
 
-      if score > 0
-        sc = Score.new
-        sc.score = score
-        sc.push = pu
-        sc.save
-        entry.scores << sc
-        hs = entry.highscore || 0
-        if score > hs
-          entry.highscore = score
-        end
-        entry.save
+      sc = Score.new
+      sc.score = score
+      sc.push = pu
+      sc.save
+      entry.scores << sc
+      hs = entry.highscore || 0
+      if score > hs
+        entry.highscore = score
       end
+      entry.save
     end
     
   end
