@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
+require 'dm-aggregates'
 require 'open-uri'
 require 'json'
 
