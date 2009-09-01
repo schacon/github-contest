@@ -61,7 +61,7 @@ end
 
 # leaderboard api
 get '/leaderboard' do
-  @entries = ContestEntry.all(:highscore.gt => 0, :order => [:highscore.desc, :entered])
+  @entries = ContestEntry.all(:highscore.gt => 0, :status => 'good', :order => [:highscore.desc, :entered])
   erb :leaderboard
 end
 
