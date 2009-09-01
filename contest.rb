@@ -20,6 +20,7 @@ class ContestEntry
   property :homepage,    String
   property :entered,    DateTime
   property :highscore,  Integer
+  property :status,      String
 
   def nwo
     self.owner + '/' + self.name
