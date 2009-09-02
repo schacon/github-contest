@@ -8,13 +8,13 @@
 	<script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
 	<script type="text/javascript" src="js/thickbox-compressed.js"></script>
 	<script type="text/javascript" src="js/jquery.corner.js"></script>
-	
+
 	<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection">
   <link rel="stylesheet" href="css/print.css" type="text/css" media="print">
   <!--[if IE]>
     <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection">
   <![endif]-->
-  
+
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8"/>
   <link rel="stylesheet" href="css/thickbox.css" type="text/css" media="screen"/>
 </head>
@@ -31,92 +31,253 @@
         <div id="links">
           <a href="/">home</a>
           <a href="/leaderboard">leaderboard</a>
-          <a href="/action">action</a>
-          <a href="/register">register</a>
         </div>
       </div>
     </div>
-    
+
     <div class="span-21" id="welcome">
-      <h1>Welcome to the 2009 GitHub Contest</h1>
-      <p>The 2009 GitHub contest is a simple recommendation engine contest.
-        We have released a dataset of our watched repositories data and want
-        to provide a list of recommended repositories for each of our users.  
-        Removed from the sample dataset are 4,788 watches - write an open source
-        program to guess the highest percentage of those removed 
-        watches and you win our prize.
+      <h1>The 2009 GitHub Contest</h1>
+      <p>The 2009 GitHub contest is now officially over!
+         We would like to thank everyone that entered the contest - it was a lot
+         of fun, produced a huge number of really amazing open source recommendation
+         engine projects in several languages and helped get developers who are
+         interested in this space to meet each other and compete in a fun
+         environment.
       </p>
     </div>
-    
-    <div class="span-13">
-      <h2>The Contest</h2>
-      <p>The contest is pretty simple.  You download our sample data which 
-        includes a file containing which users are watching which repositories,
-        and a file listing 4,788 of those users. Then you write a program to 
-        recommend up to 10 repositories for each of the test users.  
-        You get a point for each time one of your guesses was an entry we removed.
-        To enter:</p>
-        
-      <ul>
-        <li> Create a new repository on GitHub for your entry.
-        <li> Add our contest server as a post-receive URL:
-          <ul><li><strong>http://contest.github.com</strong></ul>
-        <li> Push to your repo with a <code>results.txt</code> file that contains your guesses.
-        <li> Your score is calculated and added to <a href="/leaderboard">the leaderboard</a>.
-      </ul>
-
-      <p>The contest ends on August 30th, 2009 
-      at noon PST - whichever repository has the highest number of guessed 
-      recommendations at that time wins.</p>
-
-      <div class="button blue"><a href="/register">Get started now!</a></div>  
-      &nbsp;    
-    </div>
-    
-    <div class="span-8 last">
-      <h2>The Prize</h2>
-      
-      <center><img height="250" src="images/pappy.jpg"></center>
-      <br/>
-      
-      <p>A <strong>bottle of Pappy Van Winkle</strong> 20 year reserve - the best damn
-        bourbon whiskey ever (age permitting) 
-        and a <strong>free large GitHub account</strong> for life.</p>
-
-    </div>
-      
-    <div class="span-21">
-      <h2>The Data</h2>
-       <p>The sample data consists of 440,237 entries - each identifying a single user
-         who has watched a single repository.  This data contains:</p>
-
-       <div style="float:right" class="button red"> 
-         <a href="http://github.s3.amazonaws.com/data/download.zip">Download the dataset (.zip)</a></div>
-
-       <ul>
-         <li>120,867 unique repositories
-         <li>56,555 unique users
-       </ul>
-
-       <p>We include in seperate files the names and 
-         calculated language breakdowns for each repository
-         in case you want to use that data for classification algorithms. 
-       If you want other data that we have that you can access via the GitHub API,
-       please <a href="mailto:scott@github.com">let me know</a> so I can snapshot it for you server-side instead of 
-       having you pound the server with API requests.</p>
-    </div>
 
     <div class="span-21">
-      <h2>The Rules</h2>
-      <ul>
-        <li> All the code used to generate your <code>results.txt</code> file must be included in your repository
-          and must be licenced under a <a href="http://www.opensource.org/licenses">OSI compatible license</a> after
-          the contest is over.  If you wish to use a restrictive license during the contest so others can't copy you, 
-          that is fine, but the repository must still be public so we can check your results.</li>
-        <li> GitHub must be allowed to use the code commercially without restriction, regardless of the license choosen.
-        <li> It is technically possible to guess who the users are in our system and figure out what we
-          have removed - this dataset is already basically public via our API - doing this will disqualify your entry.
-      </ul>
+      <h2>The Results</h2>
+      <p>Here are some of the projects that entered the contest and have open
+      source code available on GitHub.  If you participated in the contest and want
+      your project listed here, please add your source code to your project and
+      then email me (scott at github).  It would be great if you describe your
+      approach in your README, too.
+
+      <table id="results">
+        <tr>
+            <th>Project</th>
+            <th>Lang</th>
+            <th>License</th>
+            <th>Notes</th>
+        </tr>
+        <tr>
+            <td><a href="http://github.com/hintly/hintly_ensemble">hintly/hintly_ensemble</a></td>
+            <td>C++</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="http://github.com/jeremybarnes/github_contest">jeremybarnes/github_contest</a></td>
+            <td>C++</td>
+            <td>AGPL</td>
+            <td>Great <a href="http://github.com/jeremybarnes/github_contest">README</a></td>
+        </tr>
+        <tr>
+            <td><a href="http://github.com/ultraist/github-contest2009">ultraist/github-contest2009</a></td>
+            <td>Perl</td>
+            <td>MIT</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="http://github.com/tensor/contest">tensor/contest</a></td>
+            <td>Python/C++</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="http://github.com/cardmagic/github-contest">cardmagic/github-contest</a></td>
+            <td>Ruby</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><a href="http://github.com/jbrownlee/github-contest">jbrownlee/github-contest</a></td>
+            <td>Ruby/ObjC</td>
+            <td></td>
+            <td><a href="http://github.com/jbrownlee/github-contest">Read more - description, papers</a></td>
+            <td>
+        </tr>
+
+        <tr>
+            <td><a href="http://github.com/jcsalterego/gh-contest">jcsalterego/gh-contest</a></td>
+            <td>Python</td>
+            <td>MIT</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td nowrap><a href="http://github.com/cloudhead/github-recommend">cloudhead/github-recommend</a></td>
+            <td>C</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td nowrap><a href="http://github.com/ykf/recommendation">ykf/recommendation</a></td>
+            <td>Ruby</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td nowrap><a href="http://github.com/ultraist/github-test">ultraist/github-test</a></td>
+            <td>Perl</td>
+            <td>Public Domain</td>
+            <td></td>
+        </tr>
+
+        <!--
+       <tr>
+            <td nowrap><a href="http://github.com/michaeltaras/github_contest">michaeltaras/github_contest</a></td>
+            <td>Ruby</td>
+            <td>(restricted*)</td>
+            <td></td>
+        </tr>
+        -->
+
+        <tr>
+            <td nowrap><a href="http://github.com/swies/pappy">swies/pappy</a></td>
+            <td>Python</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td nowrap><a href="http://github.com/talison/ghc09">talison/ghc09</a></td>
+            <td>Python</td>
+            <td>MIT</td>
+            <td>Uses Tokyo Cabinet, good <a href="http://github.com/talison/ghc09">README</a></td>
+        </tr>
+
+        <tr>
+            <td nowrap><a href="http://github.com/browning/giiiiiiiiit">browning/giiiiiiiiit</a></td>
+            <td>C#</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td nowrap><a href="http://github.com/MarkLodato/gh-contest">MarkLodato/gh-contest</a></td>
+            <td>Python</td>
+            <td></td>
+            <td>Great <a href="http://github.com/MarkLodato/gh-contest">README</a></td>
+        </tr>
+
+        <tr>
+            <td nowrap><a href="http://github.com/blackskad/github-contest">blackskad/github-contest</a></td>
+            <td>Vala</td>
+            <td>GPL2</td>
+            <td>More on <a href="http://live.gnome.org/Vala">Vala</a></td>
+        </tr>
+        <tr>
+            <td nowrap><a href="http://github.com/asciiarmor/gh_contest">asciiarmor/gh_contest</a></td>
+            <td>Python</td>
+            <td></td>
+            <td>More at his <a href="http://www.asciiarmor.com/post/163265720/lessons-learned-from-the-github-recommender-contest">blog post</a></td>
+        </tr>
+        <tr>
+            <td nowrap><a href="http://github.com/jbowes/gh-contest">jbowes/gh-contest</a></td>
+            <td>Python</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td nowrap><a href="http://github.com/willbailey/contest09">willbailey/contest09</a></td>
+            <td>Ruby</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/zorab47/github-contest">zorab47/github-contest</a></td>
+            <td>Ruby</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/nirvdrum/github-contest-java">nirvdrum/github-contest-java</a></td>
+            <td>Java</td>
+            <td>Apache</td>
+            <td>For Ruby version, see <a href="http://github.com/nirvdrum/github-contest">here</a></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/chton/GithubContest">chton/GithubContest</a></td>
+            <td>Python</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/pmakholm/github-contest">pmakholm/github-contest</a></td>
+            <td>Python</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/aguids/github_contest">aguids/github_contest</a></td>
+            <td>Ruby</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/hryk/github-con09">hryk/github-con09</a></td>
+            <td>Perl</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/jakevoytko/github-contest">jakevoytko/github-contest</a></td>
+            <td>Lisp</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/micz/ghc">micz/ghc</a></td>
+            <td>PHP</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/timwee/githubcontest">timwee/githubcontest</a></td>
+            <td>Clojure</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/asw12/Github-Contest">asw12/Github-Contest</a></td>
+            <td>C#</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/AronMiller/githubcontest">AronMiller/githubcontest</a></td>
+            <td>C#</td>
+            <td></td>
+            <td></td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/danielsdeleo/acts_as_bourbon">danielsdeleo/acts_as_bourbon</a></td>
+            <td>Ruby</td>
+            <td>MIT</td>
+            <td>Writeup <a href="http://kallistec.com/2009/08/29/deciding-what-to-watch-on-github/">online</a>,
+                 using Ruby <a href="http://github.com/danielsdeleo/Decider">Decider</a> library</td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/jashkenas/recommend-repos">jashkenas/recommend-repos</a></td>
+            <td>Ruby</td>
+            <td></td>
+            <td>Using Ruby <a href="http://rb-gsl.rubyforge.org/">GSL</a> library</td>
+        </tr>
+       <tr>
+            <td nowrap><a href="http://github.com/axiak/axiak-github-contest">axiak/axiak-github-contest</a></td>
+            <td>C++,Perl,Python</td>
+            <td>GPL</td>
+            <td></td>
+        </tr>
+
+
+
+
+      </table>
+      </p>
     </div>
 
     <div id="footer" class="span-21">
@@ -152,3 +313,4 @@
 
 </body>
 </html>
+
